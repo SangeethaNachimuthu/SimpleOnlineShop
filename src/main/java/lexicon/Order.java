@@ -5,22 +5,26 @@ import java.util.List;
 import java.util.UUID;
 
 /*
-The Order class represents a order with attributes id, productList, and customer.
+The Order class represents an order with attributes id, productList, and customer.
  */
 public class Order {
 
-    private String orderId;
+    private int orderId;
     private List<Product> productList;
     private Customer customer;
 
-    public Order(Customer customer) {
-        this.orderId = generateOrderId();
+    public Order(int orderId, Customer customer) {
+        this.setOrderId(orderId);
         productList = new ArrayList<>();
         this.setCustomer(customer);
     }
 
-    public String generateOrderId() {
-        return UUID.randomUUID().toString().substring(0, 4).toUpperCase();
+    public int getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(int orderId) {
+        this.orderId = orderId;
     }
 
     public List<Product> getProductList() {
@@ -54,7 +58,7 @@ public class Order {
         if (!productList.isEmpty()) {
             System.out.println("Summary of Order: ");
             System.out.println("Customer Name: " + getCustomer().getName());
-            System.out.println("Order Id: " + generateOrderId());
+            System.out.println("Order Id: " + getOrderId());
             System.out.println("Total number of products: " + productList.size());
             System.out.println("List of Products: ");
 

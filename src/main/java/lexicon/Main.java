@@ -8,7 +8,7 @@ public class Main {
     void main() {
 
         //Created object for Customer class and assigned values.
-        Customer anna = new Customer(1001, "Anna", "anna@gmail.com");
+        Customer anna = new Customer(234, "Anna", "anna@gmail.com");
 
         //Created objects for Product class and assigned values.
         Product noteBook = new Product(12, "NoteBook", 40);
@@ -23,7 +23,7 @@ public class Main {
         Product planner = new Product(892, "Planner", 170);
 
         //Created object for Order class and assigned values.
-        Order order1 = new Order(anna);
+        Order order1 = new Order(1001, anna);
         order1.addProducts(noteBook);
         order1.addProducts(pen);
         order1.addProducts(backPack);
