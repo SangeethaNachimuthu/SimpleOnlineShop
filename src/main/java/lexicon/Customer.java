@@ -8,11 +8,13 @@ public class Customer {
     private int customerId;
     private String name;
     private String email;
+    private Address address;
 
-    public Customer(int customerId, String name, String email) {
+    public Customer(int customerId, String name, String email, Address address) {
         this.setCustomerId(customerId);
         this.setName(name);
         this.setEmail(email);
+        this.setAddress(address);
     }
 
     public int getCustomerId() {
@@ -37,5 +39,13 @@ public class Customer {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 }

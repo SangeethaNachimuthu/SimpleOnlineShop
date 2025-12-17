@@ -7,8 +7,11 @@ public class Main {
 
     void main() {
 
+        Address address = new Address("30", "Nörregatan",
+                "Älmhult", 34330, "Sweden");
+
         //Created object for Customer class and assigned values.
-        Customer anna = new Customer(234, "Anna", "anna@gmail.com");
+        Customer anna = new Customer(234, "Anna", "anna@gmail.com", address);
 
         //Created objects for Product class and assigned values.
         Product noteBook = new Product(12, "NoteBook", 40);

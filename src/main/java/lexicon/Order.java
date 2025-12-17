@@ -4,7 +4,6 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 /*
 The Order class represents an order with attributes id, productList, and customer.
@@ -41,6 +40,7 @@ public class Order {
         this.customer = customer;
     }
 
+
     //This method used to add the products into productList.
     public void addProducts(Product p) {
         productList.add(p);
@@ -73,6 +73,7 @@ public class Order {
             System.out.println("Summary of Order: ");
             System.out.println("==================");
             System.out.println("Customer Name: " + getCustomer().getName());
+            System.out.println(getCustomer().getAddress().toString());
             System.out.println("Order Id: " + getOrderId());
             System.out.println("Order Date and Time: " + getOrderDateAndTime());
             System.out.println("Total number of products: " + productList.size());
