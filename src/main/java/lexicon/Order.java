@@ -85,7 +85,7 @@ public class Order {
             System.out.println(getCustomer().getAddress().toString());
             System.out.println("Order Id: " + getOrderId());
             System.out.println("Order Date and Time: " + getOrderDateAndTime());
-            System.out.println(getPayment().toString());
+            System.out.println("Payment Method: " + getPayment().getPaymentMethod());
             System.out.println("Total number of products: " + productList.size());
             System.out.println("List of Products: ");
 
