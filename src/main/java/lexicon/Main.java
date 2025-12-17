@@ -36,5 +36,8 @@ public class Main {
         order1.addProducts(planner);
 
         order1.getOrderDetails(); //Call getOrderDetails method to display the Order info.
+
+        order1.removeProduct(headPhones);   //This method removes the particular product from the list.
+        order1.getOrderDetails();
     }
 }

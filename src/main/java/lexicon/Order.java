@@ -1,5 +1,7 @@
 package lexicon;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -44,6 +46,18 @@ public class Order {
         productList.add(p);
     }
 
+    //This method used to remove the product from productList.
+    public void removeProduct(Product p) {
+        productList.remove(p);
+    }
+
+    //This method return the current date and time in a specified format.
+    public String getOrderDateAndTime() {
+        LocalDateTime localDateTime = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
+        return localDateTime.format(formatter);
+    }
+
     //This method used to calculate the total price of the order.
     public double calculateTotal() {
         double totalPrice = 0;
@@ -57,8 +71,10 @@ public class Order {
     public void getOrderDetails() {
         if (!productList.isEmpty()) {
             System.out.println("Summary of Order: ");
+            System.out.println("==================");
             System.out.println("Customer Name: " + getCustomer().getName());
             System.out.println("Order Id: " + getOrderId());
+            System.out.println("Order Date and Time: " + getOrderDateAndTime());
             System.out.println("Total number of products: " + productList.size());
             System.out.println("List of Products: ");
 
