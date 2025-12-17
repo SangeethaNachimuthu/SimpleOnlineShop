@@ -13,11 +13,13 @@ public class Order {
     private int orderId;
     private List<Product> productList;
     private Customer customer;
+    private Payment payment;
 
-    public Order(int orderId, Customer customer) {
+    public Order(int orderId, Customer customer, Payment payment) {
         this.setOrderId(orderId);
         productList = new ArrayList<>();
         this.setCustomer(customer);
+        this.setPayment(payment);
     }
 
     public int getOrderId() {
@@ -40,9 +42,16 @@ public class Order {
         this.customer = customer;
     }
 
+    public Payment getPayment() {
+        return payment;
+    }
+
+    public void setPayment(Payment payment) {
+        this.payment = payment;
+    }
 
     //This method used to add the products into productList.
-    public void addProducts(Product p) {
+    public void addProduct(Product p) {
         productList.add(p);
     }
 
@@ -59,7 +68,7 @@ public class Order {
     }
 
     //This method used to calculate the total price of the order.
-    public double calculateTotal() {
+    public double calculateTotalPrice() {
         double totalPrice = 0;
         for (Product product : productList) {
             totalPrice = totalPrice + product.getPrice();
@@ -68,7 +77,7 @@ public class Order {
     }
 
     //This method used to get the complete details of an order.
-    public void getOrderDetails() {
+    public void displayOrderDetails() {
         if (!productList.isEmpty()) {
             System.out.println("Summary of Order: ");
             System.out.println("==================");
@@ -76,6 +85,7 @@ public class Order {
             System.out.println(getCustomer().getAddress().toString());
             System.out.println("Order Id: " + getOrderId());
             System.out.println("Order Date and Time: " + getOrderDateAndTime());
+            System.out.println(getPayment().toString());
             System.out.println("Total number of products: " + productList.size());
             System.out.println("List of Products: ");
 
@@ -85,7 +95,7 @@ public class Order {
                         ", SEK " + product.getPrice());
                 counter++;
             }
-            System.out.println("Total Price: SEK " + calculateTotal());
+            System.out.println("Total Price: SEK " + calculateTotalPrice());
         } else {
             System.out.println("There is no product to place an order!");
         }
