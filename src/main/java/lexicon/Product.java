@@ -1,5 +1,8 @@
 package lexicon;
 
+/*
+The Product class represents a product with attributes id, name, and price.
+ */
 public class Product {
 
     private int productId;
@@ -35,4 +38,5 @@ public class Product {
     public void setPrice(double price) {
         this.price = price;
     }
+
 }

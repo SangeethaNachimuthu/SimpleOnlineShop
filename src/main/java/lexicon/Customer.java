@@ -1,12 +1,15 @@
 package lexicon;
 
+/*
+The Customer class represents a customer with attributes id, name, and email.
+ */
 public class Customer {
 
     private int customerId;
     private String name;
     private String email;
 
-    public Customer(int customerId, String email, String name) {
+    public Customer(int customerId, String name, String email) {
         this.setCustomerId(customerId);
         this.setName(name);
         this.setEmail(email);
