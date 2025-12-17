@@ -25,22 +25,24 @@ public class Main {
         Product usbCable = new Product(712, "USBCable", 109);
         Product planner = new Product(892, "Planner", 170);
 
-        //Created object for Order class and assigned values.
-        Order order1 = new Order(1001, anna);
-        order1.addProducts(noteBook);
-        order1.addProducts(pen);
-        order1.addProducts(backPack);
-        order1.addProducts(waterBottle);
-        order1.addProducts(calculator);
-        order1.addProducts(headPhones);
-        order1.addProducts(charger);
-        order1.addProducts(mouse);
-        order1.addProducts(usbCable);
-        order1.addProducts(planner);
+        Payment paymentMethod = new Payment("COD");
 
-        order1.getOrderDetails(); //Call getOrderDetails method to display the Order info.
+        //Created object for Order class and assigned values.
+        Order order1 = new Order(1001, anna, paymentMethod);
+        order1.addProduct(noteBook);
+        order1.addProduct(pen);
+        order1.addProduct(backPack);
+        order1.addProduct(waterBottle);
+        order1.addProduct(calculator);
+        order1.addProduct(headPhones);
+        order1.addProduct(charger);
+        order1.addProduct(mouse);
+        order1.addProduct(usbCable);
+        order1.addProduct(planner);
+
+        order1.displayOrderDetails(); //Call getOrderDetails method to display the Order info.
 
         order1.removeProduct(headPhones);   //This method removes the particular product from the list.
-        order1.getOrderDetails();
+        order1.displayOrderDetails();
     }
 }
