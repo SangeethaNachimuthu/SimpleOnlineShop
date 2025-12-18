@@ -25,10 +25,10 @@ public class Main {
         Product usbCable = new Product(712, "USBCable", 109);
         Product planner = new Product(892, "Planner", 170);
 
-        Payment paymentMethod = new Payment("COD");
+        Payment paymentMethod = new Payment("Card Payment", "Success");
 
         //Created object for Order class and assigned values.
-        Order order1 = new Order(1001, anna, paymentMethod, "Shipped");
+        Order order1 = new Order(1001, anna, paymentMethod);
         order1.addProduct(noteBook);
         order1.addProduct(pen);
         order1.addProduct(backPack);
