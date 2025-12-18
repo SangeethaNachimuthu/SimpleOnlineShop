@@ -32,6 +32,9 @@ The Order class provides methods to:
 - displayOrderDetails()
 
 ### Optional Features
-1. Implemented an Address class to represent the shipping address.
-The shipping address is displayed along with the order and customer details.
-2. Added a Payment class to store and display the payment method for an order.
+1. Implemented a removeProduct method and displayed the updated product list after removal.
+2. Added a getOrderDateAndTime method to display the order Date and Time.
+3. Implemented an Address class to represent the shipping address,
+which is displayed along with the order and customer details.
+4. Added a Payment class to store and display the payment method for an order.
+5. Added OrderStatus field to track and display the current status of an order.

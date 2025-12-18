@@ -28,7 +28,7 @@ public class Main {
         Payment paymentMethod = new Payment("COD");
 
         //Created object for Order class and assigned values.
-        Order order1 = new Order(1001, anna, paymentMethod);
+        Order order1 = new Order(1001, anna, paymentMethod, "Shipped");
         order1.addProduct(noteBook);
         order1.addProduct(pen);
         order1.addProduct(backPack);

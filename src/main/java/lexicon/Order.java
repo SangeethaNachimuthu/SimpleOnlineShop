@@ -14,12 +14,14 @@ public class Order {
     private List<Product> productList;
     private Customer customer;
     private Payment payment;
+    private String orderStatus;
 
-    public Order(int orderId, Customer customer, Payment payment) {
+    public Order(int orderId, Customer customer, Payment payment, String orderStatus) {
         this.setOrderId(orderId);
         productList = new ArrayList<>();
         this.setCustomer(customer);
         this.setPayment(payment);
+        this.setOrderStatus(orderStatus);
     }
 
     public int getOrderId() {
@@ -48,6 +50,14 @@ public class Order {
 
     public void setPayment(Payment payment) {
         this.payment = payment;
+    }
+
+    public String getOrderStatus() {
+        return orderStatus;
+    }
+
+    public void setOrderStatus(String orderStatus) {
+        this.orderStatus = orderStatus;
     }
 
     //This method used to add the products into productList.
@@ -86,6 +96,7 @@ public class Order {
             System.out.println("Order Id: " + getOrderId());
             System.out.println("Order Date and Time: " + getOrderDateAndTime());
             System.out.println("Payment Method: " + getPayment().getPaymentMethod());
+            System.out.println("Order Status: " + getOrderStatus());
             System.out.println("Total number of products: " + productList.size());
             System.out.println("List of Products: ");
 
