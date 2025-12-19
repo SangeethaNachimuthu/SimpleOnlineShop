@@ -38,3 +38,5 @@ The Order class provides methods to:
 which is displayed along with the order and customer details.
 4. Added a Payment class to store and display the payment method and status for an order.
 5. Added OrderStatus field to track and display the current status of an order.
+6.	Implemented a discount feature to apply a percentage-based discount on the total order price.
+7.	Introduced an OrderItem class to support product quantity, allowing multiple units of the same product to be added to an order and enabling accurate price calculation.
