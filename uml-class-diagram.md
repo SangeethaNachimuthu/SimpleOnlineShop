@@ -19,13 +19,16 @@ classDiagram
         -int productId
         -String productName
         -String price
-        +Product(productId : int, productName : String, price : double)
+        -String category
+        +Product(productId : int, productName : String, price : double, category : String)
         +getProductId() : int
         +setProductId(productId : int) : void
         +getProductName() : String
         +setProductName(productName : String) : void
         +getPrice() : double
         +setPrice(price : double) : void
+        +getCategory() : String
+        +setCategory(category : String) : void
     }
     class Order {
         -int orderId

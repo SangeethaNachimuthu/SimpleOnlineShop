@@ -8,11 +8,13 @@ public class Product {
     private int productId;
     private String productName;
     private double price;
+    private String category;
 
-    public Product(int productId, String productName, double price) {
+    public Product(int productId, String productName, double price, String category) {
         this.setProductId(productId);
         this.setProductName(productName);
         this.setPrice(price);
+        this.setCategory(category);
     }
 
     public int getProductId() {
@@ -39,4 +41,11 @@ public class Product {
         this.price = price;
     }
 
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
 }

@@ -126,7 +126,8 @@ public class Order {
                 Product product = item.getProduct();
                 System.out.println("  " + counter + ". " + product.getProductName() +
                         " | Quantity: " + item.getQuantity() +
-                        ", SEK " + product.getPrice());
+                        " | Category: " + product.getCategory() +
+                        " | SEK " + product.getPrice());
                 counter++;
             }
             calculateTotalPrice();

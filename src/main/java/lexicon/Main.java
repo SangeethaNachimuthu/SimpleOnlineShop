@@ -14,16 +14,16 @@ public class Main {
         Customer anna = new Customer(234, "Anna", "anna@gmail.com", address);
 
         //Created objects for Product class and assigned values.
-        Product noteBook = new Product(12, "NoteBook", 40);
-        Product pen = new Product(134, "Pen", 10);
-        Product backPack = new Product(156, "BackPack", 200);
-        Product waterBottle = new Product(186, "WaterBottle", 90);
-        Product calculator = new Product(103, "Calculator", 120);
-        Product headPhones = new Product(204, "HeadPhones", 250);
-        Product charger = new Product(308, "Charger", 165);
-        Product mouse = new Product(534, "Mouse", 65);
-        Product usbCable = new Product(712, "USBCable", 109);
-        Product planner = new Product(892, "Planner", 170);
+        Product noteBook = new Product(12, "NoteBook", 40, "Stationary");
+        Product pen = new Product(134, "Pen", 10, "Stationary");
+        Product backPack = new Product(156, "BackPack", 200, "Bags");
+        Product waterBottle = new Product(186, "WaterBottle", 90, "Drinkware");
+        Product calculator = new Product(103, "Calculator", 120, "Stationary");
+        Product headPhones = new Product(204, "HeadPhones", 250, "Electronics");
+        Product charger = new Product(308, "Charger", 165, "Electronics");
+        Product mouse = new Product(534, "Mouse", 65, "Electronics");
+        Product usbCable = new Product(712, "USBCable", 109, "Electronics");
+        Product planner = new Product(892, "Planner", 170, "Stationary");
 
         Payment paymentMethod = new Payment("Card Payment", "Success");
 
