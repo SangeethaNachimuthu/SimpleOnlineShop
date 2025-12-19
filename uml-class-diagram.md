@@ -29,18 +29,24 @@ classDiagram
     }
     class Order {
         -int orderId
-        -List~Product~ productList
+        -List~OrderItem~ orderItemList
         -Customer customer
         -Payment payment
+        -OrderStatus : status
+        -discountPercentage : double
         +Order(orderId : int, customer : Customer, payment : Payment)
         +getOrderId() : int
         +setOrderId(orderId : int) : void
-        +getProductList() : List~Product~
+        +getOrderItemList() : List~orderItemList~
         +getCustomer() : Customer
         +setCustomer(customer : Customer) : void
         +getPayment() : Payment
         +setPayment(payment : Payment) : void
-        +addProduct(product : Product) : void
+        +getStatus() : OrderStatus
+        +setStatus(status : OrderStatus) : void
+        +getDiscountPercentage() : double
+        +setDiscountPercentage(discountPercentage : double) : void
+        +addProduct(product : Product, quantity : int) : void
         +removeProduct(product : Product) : void
         +getOrderDateAndTime() : String
         +calculateTotalPrice() : double
@@ -82,9 +88,20 @@ classDiagram
         SHIPPED
         CANCELED
     }
+    class OrderItem {
+        -Product product
+        -int quantity
+        +OrderItem(product : Product, quantity : int)
+        +getProduct() : Product
+        +setProduct(product : Product) : void
+        +getQuantity() : int
+        +setQuantity(quantity : int) : void
+        +getLineTotal() : double
+    }
     
    Order --> "1" Customer : belongsTo
-   Order --> "1..*" Product : contains
+   Order --> "1..*" OrderItem : contains
+   OrderItem --> "1" Product : refersTo
    Customer --> "1..*" Address : have
    Order --> "1" Payment : has
    Order --> "1" OrderStatus : hasStatus

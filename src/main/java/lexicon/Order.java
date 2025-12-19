@@ -3,6 +3,7 @@ package lexicon;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /*
@@ -11,17 +12,19 @@ The Order class represents an order with attributes id, productList, and custome
 public class Order {
 
     private int orderId;
-    private List<Product> productList;
+    private List<OrderItem> orderItemList;
     private Customer customer;
     private Payment payment;
     private OrderStatus status;
+    private double discountPercentage;
 
     public Order(int orderId, Customer customer, Payment payment) {
         this.setOrderId(orderId);
-        productList = new ArrayList<>();
+        orderItemList = new ArrayList<>();
         this.setCustomer(customer);
         this.setPayment(payment);
         this.setStatus(OrderStatus.SHIPPED);
+        this.setDiscountPercentage(5);
     }
 
     public int getOrderId() {
@@ -32,8 +35,8 @@ public class Order {
         this.orderId = orderId;
     }
 
-    public List<Product> getProductList() {
-        return productList;
+    public List<OrderItem> getOrderItemList() {
+        return orderItemList;
     }
 
     public Customer getCustomer() {
@@ -60,14 +63,24 @@ public class Order {
         this.status = status;
     }
 
+    public double getDiscountPercentage() {
+        return discountPercentage;
+    }
+
+    public void setDiscountPercentage(double discountPercentage) {
+        this.discountPercentage = discountPercentage;
+    }
+
+
     //This method used to add the products into productList.
-    public void addProduct(Product p) {
-        productList.add(p);
+    public void addProduct(Product product, int quantity) {
+        OrderItem orderItem = new OrderItem(product, quantity);
+        orderItemList.add(orderItem);
     }
 
     //This method used to remove the product from productList.
-    public void removeProduct(Product p) {
-        productList.remove(p);
+    public void removeProduct(Product product) {
+        orderItemList.removeIf(item -> item.getProduct().equals(product));
     }
 
     //This method return the current date and time in a specified format.
@@ -77,18 +90,26 @@ public class Order {
         return localDateTime.format(formatter);
     }
 
-    //This method used to calculate the total price of the order.
-    public double calculateTotalPrice() {
+    //This method used to calculate the total price and applies the discount for the order.
+    public void calculateTotalPrice() {
         double totalPrice = 0;
-        for (Product product : productList) {
-            totalPrice = totalPrice + product.getPrice();
+
+        for (OrderItem item : orderItemList) {
+            totalPrice = totalPrice + item.getLineTotal();
         }
-        return totalPrice;
+        double finalPrice = totalPrice;
+
+        if (totalPrice >= 500) {
+            finalPrice = totalPrice - ((totalPrice * discountPercentage)/100);
+        }
+        System.out.println("Total Price: " + totalPrice);
+        System.out.println("Opening Discount: " + getDiscountPercentage() + "%");
+        System.out.println("Final Price: " + finalPrice);
     }
 
     //This method used to get the complete details of an order.
     public void displayOrderDetails() {
-        if (!productList.isEmpty()) {
+        if (!orderItemList.isEmpty()) {
             System.out.println("Summary of Order: ");
             System.out.println("==================");
             System.out.println("Customer Name: " + getCustomer().getName());
@@ -97,16 +118,18 @@ public class Order {
             System.out.println("Order Date and Time: " + getOrderDateAndTime());
             getPayment().displayPaymentDetails();
             System.out.println("Order Status: " + getStatus());
-            System.out.println("Total number of products: " + productList.size());
+            System.out.println("Total number of products: " + orderItemList.size());
             System.out.println("List of Products: ");
 
             int counter = 1;
-            for (Product product : productList) {
+            for (OrderItem item : orderItemList) {
+                Product product = item.getProduct();
                 System.out.println("  " + counter + ". " + product.getProductName() +
+                        " | Quantity: " + item.getQuantity() +
                         ", SEK " + product.getPrice());
                 counter++;
             }
-            System.out.println("Total Price: SEK " + calculateTotalPrice());
+            calculateTotalPrice();
         } else {
             System.out.println("There is no product to place an order!");
         }

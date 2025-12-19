@@ -29,16 +29,16 @@ public class Main {
 
         //Created object for Order class and assigned values.
         Order order1 = new Order(1001, anna, paymentMethod);
-        order1.addProduct(noteBook);
-        order1.addProduct(pen);
-        order1.addProduct(backPack);
-        order1.addProduct(waterBottle);
-        order1.addProduct(calculator);
-        order1.addProduct(headPhones);
-        order1.addProduct(charger);
-        order1.addProduct(mouse);
-        order1.addProduct(usbCable);
-        order1.addProduct(planner);
+        order1.addProduct(noteBook, 2);
+        order1.addProduct(pen, 3);
+        order1.addProduct(backPack, 1);
+        order1.addProduct(waterBottle, 1);
+        order1.addProduct(calculator, 1);
+        order1.addProduct(headPhones, 1);
+        order1.addProduct(charger, 1);
+        order1.addProduct(mouse, 1);
+        order1.addProduct(usbCable, 1);
+        order1.addProduct(planner, 2);
 
         order1.displayOrderDetails(); //Call getOrderDetails method to display the Order info.
 
